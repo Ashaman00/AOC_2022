@@ -1,10 +1,4 @@
-import pyperclip
-
-def result(r, n=[1]):
-	print(f'Part {n[0]}: {r}')
-	n[0] += 1
-	pyperclip.copy(r)
-
+import advent
 
 def to_integer(p1, p2):
 	return ord(p1) - ord('A'), ord(p2) - ord('X')
@@ -38,11 +32,11 @@ def score2(line):
 
 #########################################
 
-with open("input.txt") as f:
+with open(advent.fname(2)) as f:
 	lines = f.readlines()
 
 tot1 = sum(score1(line) for line in lines)
-tot2 = sum(score2(line) for line in lines)
+advent.result(tot1)
 
-result(tot1)
-result(tot2)
+tot2 = sum(score2(line) for line in lines)
+advent.result(tot2)

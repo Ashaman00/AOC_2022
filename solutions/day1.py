@@ -1,12 +1,6 @@
-import pyperclip
+import advent
 
-def result(r, n=[1]):
-	print(f'Part {n[0]}: {r}')
-	n[0] += 1
-	pyperclip.copy(r)
-
-
-with open("input.txt") as f:
+with open(advent.fname(1)) as f:
 	maxi, cur = [0,0,0], 0
 	for line in f.read().split('\n'):
 		if line == '':
@@ -16,5 +10,5 @@ with open("input.txt") as f:
 		else:
 			cur += int(line)
 
-result(maxi[0])
-result(sum(maxi))
+advent.result(maxi[0])
+advent.result(sum(maxi))
