@@ -1,7 +1,7 @@
 import advent
 
 def distinct_chars_pos(line, nb_chars):
-	for pos in range(nb_chars-1, len(line)):
+	for pos in range(nb_chars, len(line)):
 		if len(set(line[pos-nb_chars:pos])) == nb_chars:
 			return pos
 
