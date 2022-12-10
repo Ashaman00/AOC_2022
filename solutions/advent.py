@@ -1,6 +1,9 @@
 import pyperclip
 from time import process_time
 
+FULL = '█'
+EMPTY = ' ' # '░'
+
 def result(r, n=[1]):
 	t = process_time()
 	if t < 10:
