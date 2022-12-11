@@ -1,8 +1,9 @@
 import pyperclip
 from time import process_time
 
-FULL = '⬜' # '█'
-EMPTY = '  ' # '░'
+FULL = '⬜'  # '█'
+EMPTY = '  '  # '░'
+
 
 def result(r, n=[1]):
 	t = process_time()
@@ -12,8 +13,8 @@ def result(r, n=[1]):
 		print(f'Part {n[0]}: {r} - ({t:.2f} s)')
 	n[0] += 1
 	pyperclip.copy(r)
-	
-	
+
+
 def fname(day, test=False):
 	if test:
 		return f'../inputs/test{day}.txt'
