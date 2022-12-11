@@ -1,8 +1,8 @@
 import pyperclip
 from time import process_time
 
-FULL = '█'
-EMPTY = ' ' # '░'
+FULL = '⬜' # '█'
+EMPTY = '  ' # '░'
 
 def result(r, n=[1]):
 	t = process_time()
