@@ -15,7 +15,8 @@ class Monkey:
 
 def parse(lines):
 	it = list(map(int, lines[1].split(': ')[1].split(', ')))
-	op = lines[2].split('= ')[1]
+	arith = lines[2].split('= ')[1]
+	op = eval(f'lambda old: {arith}')
 	test = int(lines[3].split(' ')[-1])
 	true = int(lines[4].split(' ')[-1])
 	false = int(lines[5].split(' ')[-1])
@@ -26,8 +27,7 @@ def make_round(monkeys, is_part1, maxi=0):
 	for monke in monkeys:
 		monke.ninspected += len(monke.items)
 		while len(monke.items) > 0:
-			old = monke.items.pop()
-			new = eval(monke.op)
+			new = monke.op(monke.items.pop())
 			new = new // 3 if is_part1 else new % maxi
 			targ = monke.targT if new % monke.test == 0 else monke.targF
 			monkeys[targ].items.append(new)
@@ -47,7 +47,7 @@ def activity(monkeys):
 
 with open(advent.fname(11, test=False)) as f:
 	monkeys = [parse(l.split('\n')) for l in f.read()[:-1].split('\n\n')]
-monkeys2 = deepcopy(monkeys)
+	monkeys2 = deepcopy(monkeys)
 
 for r in range(20):
 	make_round(monkeys, True)
