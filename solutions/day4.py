@@ -1,5 +1,6 @@
 import advent
 
+
 def read_pair(line):
 	p1, p2 = line.strip().split(',')
 	p1 = [int(n) for n in p1.split('-')]
@@ -17,6 +18,7 @@ def overlap(p1, p2):
 	return p1[1] >= p2[0]
 
 #################################################
+
 
 with open(advent.fname(4)) as f:
 	lines = [read_pair(l) for l in f.readlines()]

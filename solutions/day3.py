@@ -1,5 +1,6 @@
 import advent
 
+
 def value(char):
 	c = ord(char)
 	if ord('a') <= c <= ord('z'):
@@ -20,6 +21,7 @@ def all_three(l1, l2, l3):
 	return value(s.pop())
 
 #################################################
+
 
 with open(advent.fname(3)) as f:
 	lines = [l.strip() for l in f.readlines()]

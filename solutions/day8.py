@@ -1,5 +1,5 @@
 import advent
-from itertools import takewhile
+
 
 def visible(i, j, trees):
 	h = trees[i][j]
@@ -23,6 +23,7 @@ def scenic(i, j, trees):
 	return (i-left) * (j-top) * (right-i) * (bot-j)
 
 #################################################
+
 
 with open(advent.fname(8)) as f:
 	trees = [list(map(int, l.strip())) for l in f.readlines() if l != '']

@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from copy import deepcopy
 from math import lcm
 
+
 @dataclass
 class Monkey:
 	items: list[int]
@@ -35,15 +36,16 @@ def make_round(monkeys, is_part1, maxi=0):
 
 def print_round(rnd, monkeys):
 	print(f'Round {r+1}:')
-	for n,m in enumerate(monkeys):
+	for n, m in enumerate(monkeys):
 		print(f'\tMonkey {n}: {m.items}')
 
 
 def activity(monkeys):
-	act1, act2 = sorted(monkeys, key=lambda m:-m.ninspected)[:2]
+	act1, act2 = sorted(monkeys, key=lambda m: -m.ninspected)[:2]
 	return act1.ninspected * act2.ninspected
 
 #################################################
+
 
 with open(advent.fname(11, test=False)) as f:
 	monkeys = [parse(l.split('\n')) for l in f.read()[:-1].split('\n\n')]

@@ -3,6 +3,7 @@ import advent
 res1 = 0
 res2 = '\n'
 
+
 def one_cycle(cycle, x):
 	global res1, res2
 	if cycle % 40 == 20:
@@ -13,6 +14,7 @@ def one_cycle(cycle, x):
 		res2 += '\n'
 
 #################################################
+
 
 with open(advent.fname(10)) as f:
 	instrs = [l.strip() for l in f.readlines() if l != '']

@@ -1,5 +1,6 @@
 import advent
 
+
 def stack_from_table(table):
 	table = [line[1::4] for line in table.split('\n')[:-1]]
 	stacks = [[] for _ in table[0]]
@@ -22,6 +23,7 @@ def do_move2(stacks, move):
 	stacks[send-1] = stacks[send-1][qty:]
 
 #################################################
+
 
 with open(advent.fname(5)) as f:
 	table, moves = f.read().split('\n\n')

@@ -1,5 +1,6 @@
 import advent
 
+
 def parse(line):
 	d, n = line.strip().split()
 	return d, int(n)
@@ -29,11 +30,12 @@ def move(d, snake):
 
 #################################################
 
+
 with open(advent.fname(9)) as f:
 	moves = [parse(l) for l in f.readlines() if l != '']
 
-snake = [(0,0) for _ in range(10)]
-vis1, vis2 = {(0,0)}, {(0,0)}
+snake = [(0, 0) for _ in range(10)]
+vis1, vis2 = {(0, 0)}, {(0, 0)}
 for d, n in moves:
 	for k in range(n):
 		snake = move(d, snake)

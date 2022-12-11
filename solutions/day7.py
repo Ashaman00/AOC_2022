@@ -1,6 +1,7 @@
 import advent
 from dataclasses import dataclass
 
+
 @dataclass
 class Directory:
 	name: str
@@ -13,11 +14,9 @@ class Directory:
 			return self
 		return self.parent.root()
 
-
 	def size(self):
 		return sum(f[0] for f in self.files) + \
-			   sum(d.size() for d in self.subdirs.values())
-
+			sum(d.size() for d in self.subdirs.values())
 
 	def all_subs(self):
 		yield from self.subdirs.values()
@@ -50,6 +49,7 @@ commands = {
 	"cd": cd
 }
 
+
 def recv_command(comm, cwd):
 	cc, *output = comm.split('\n')
 	name, *args = cc.strip().split(' ')
@@ -62,6 +62,7 @@ def populate_dir(root, comms):
 		cwd = recv_command(comm, cwd)
 
 #################################################
+
 
 with open(advent.fname(7)) as f:
 	comms = f.read()[1:-1].split('\n$')

@@ -1,11 +1,13 @@
 import advent
 
+
 def distinct_chars_pos(line, nb_chars):
 	for pos in range(nb_chars, len(line)):
 		if len(set(line[pos-nb_chars:pos])) == nb_chars:
 			return pos
 
 #################################################
+
 
 with open(advent.fname(6)) as f:
 	line = f.read()

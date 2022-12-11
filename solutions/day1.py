@@ -1,7 +1,7 @@
 import advent
 
 with open(advent.fname(1)) as f:
-	maxi, cur = [0,0,0], 0
+	maxi, cur = [0, 0, 0], 0
 	for line in f.read().split('\n'):
 		if line == '':
 			maxi.append(cur)
