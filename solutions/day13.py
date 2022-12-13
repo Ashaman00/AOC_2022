@@ -1,5 +1,4 @@
 import advent
-from itertools import zip_longest
 from functools import cmp_to_key
 from ast import literal_eval as eval
 
@@ -21,15 +20,12 @@ def compare(l1, l2):
 	if isinstance(l2, int):
 		return compare(l1, [l2])
 
-	for x, y in zip_longest(l1, l2):
-		if x is None:
-			return SMALLER
-		if y is None:
-			return BIGGER
+	for x, y in zip(l1, l2):
 		comp = compare(x, y)
 		if comp != EQUAL:
 			return comp
-	return EQUAL
+	return SMALLER if len(l1) < len(l2) else \
+		(BIGGER if len(l1) > len(l2) else EQUAL)
 
 
 #################################################
