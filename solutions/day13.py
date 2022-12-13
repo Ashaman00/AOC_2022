@@ -1,6 +1,7 @@
 import advent
 from itertools import zip_longest
 from functools import cmp_to_key
+from ast import literal_eval as eval
 
 SMALLER = -1
 EQUAL = 0
