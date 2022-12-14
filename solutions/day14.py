@@ -57,7 +57,7 @@ grid = defaultdict(lambda: AIR)
 floor = 0
 with open(advent.fname(14, test=False)) as f:
     for line in f:
-        points = [advent.lmapint(p.split(',')) for p in line.split(' -> ')]
+        points = [advent.lmi(p.split(',')) for p in line.split(' -> ')]
         for p1, p2 in pairwise(points):
             for p in segment(*p1, *p2):
                 grid[p] = WALL

@@ -22,7 +22,7 @@ def fname(day, test=False):
 	return f'../inputs/day{day}.txt'
 
 
-def lmapint(l):
+def lmi(l):
 	return list(map(int, l))
 
 
