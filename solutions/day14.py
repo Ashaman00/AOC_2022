@@ -28,20 +28,20 @@ def sand_in_void(grid, void, x=500, y=0):
     return False
 
 
-def with_floor(grid, floor, x=500, y=0):
-    while True:  # swapped the recursion for a while loop, a bit quicker
-        if y == floor - 1:
-            grid[(x, y)] = SAND
-            return False
-        elif grid[(x, y + 1)] == AIR:
-            y += 1
-        elif grid[(x - 1, y + 1)] == AIR:
-            x, y = x - 1, y + 1
-        elif grid[(x + 1, y + 1)] == AIR:
-            x, y = x + 1, y + 1
-        else:
-            grid[(x, y)] = SAND
-            return x == 500 and y == 0
+def count_grains(grid, floor, x=500, y=0):
+    vis = {(x, y)}
+    to_vis = [(x, y)]
+    res = 0
+    while len(to_vis) > 0:
+        x, y = to_vis.pop(0)
+        if y == floor or grid[(x, y)] == WALL:
+            continue
+        res += 1
+        for nx in [x, x-1, x+1]:
+            if (nx, y+1) not in vis:
+                vis.add((nx, y+1))
+                to_vis.append((nx, y+1))
+    return res
 
 
 def draw_grid(grid, bds):
@@ -68,7 +68,4 @@ while not sand_in_void(grid, floor):
     nsands += 1
 advent.result(nsands)
 # draw_grid(grid, advent.Bounds(450, 0, 550, floor))
-
-while not with_floor(grid, floor):
-    nsands += 1
-advent.result(nsands + 1)
+advent.result(count_grains(grid, floor))
